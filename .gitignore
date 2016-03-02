@@ -1,0 +1,8 @@
+/nbproject/private/
+/vendor/
+/.idea
+/.buildpath
+/.project
+/.settings/
+composer.phar
+composer.lock
