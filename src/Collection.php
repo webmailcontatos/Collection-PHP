@@ -14,7 +14,8 @@ use IteratorAggregate;
 use JsonSerializable;
 
 /**
- * Displays <a href="http://laravel.com/docs/5.1/collections">CollectionLaravel</a>
+ * Class Collection
+ * @package Collection
  */
 class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate, Jsonable, JsonSerializable
 {
@@ -27,8 +28,8 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
     protected $items = [];
 
     /**
-     * Displays <a href="http://laravel.com/docs/5.1/collections">CollectionLaravel</a>
-     * @param mixed $items Array com os dados da colecao.
+     * Collection constructor.
+     * @param array $items Array
      */
     public function __construct($items = [])
     {
