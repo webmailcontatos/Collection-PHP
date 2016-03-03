@@ -1,8 +1,0 @@
-<phpunit  colors="true" bootstrap="bootstrap.php">
-    <testsuites>
-        <testsuite name="Collection">
-            <directory>Cases</directory>
-        </testsuite>
-    </testsuites>
-</phpunit>
-  
