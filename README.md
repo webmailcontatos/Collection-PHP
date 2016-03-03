@@ -1,3 +1,6 @@
+[![Latest Stable Version](https://poser.pugx.org/faguima/collection/v/stable)](https://packagist.org/packages/faguima/collection)
+[![Total Downloads](https://poser.pugx.org/faguima/collection/downloads)](https://packagist.org/packages/faguima/collection)
+[![License](https://poser.pugx.org/faguima/collection/license)](https://packagist.org/packages/faguima/collection)
 [![Build Status](https://travis-ci.org/webmailcontatos/Collection-PHP.svg?branch=master)](https://travis-ci.org/webmailcontatos/Collection-PHP)
 # Collection-PHP
  Excellent tool to make your experience with php array much cleaner and comfortable
