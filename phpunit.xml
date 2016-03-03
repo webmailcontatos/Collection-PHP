@@ -10,10 +10,10 @@
   </logging>
     <filter>
         <whitelist >
-            <file>src/Collection/Collection.php</file>
-            <file>src/Collection/Util/Helpers.php</file>
-            <file>src/Collection/Util/Arr.php</file>
-            <file>src/Collection/Util/Macroable.php</file>
+            <file>src/Collection.php</file>
+            <file>src/Tools/Helpers.php</file>
+            <file>src/Tools/Arr.php</file>
+            <file>src/Tools/Macroable.php</file>
         </whitelist>
     </filter>   
 
