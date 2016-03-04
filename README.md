@@ -2,6 +2,7 @@
 [![Total Downloads](https://poser.pugx.org/faguima/collection/downloads)](https://packagist.org/packages/faguima/collection)
 [![License](https://poser.pugx.org/faguima/collection/license)](https://packagist.org/packages/faguima/collection)
 [![Build Status](https://travis-ci.org/webmailcontatos/Collection-PHP.svg?branch=master)](https://travis-ci.org/webmailcontatos/Collection-PHP)
+![Stringy](http://danielstjules.com/github/stringy-logo.png)
 # Collection-PHP
  Excellent tool to make your experience with php array much cleaner and comfortable
 
@@ -26,7 +27,7 @@ Then, after running composer update or php composer.phar update, you can load th
 require 'vendor/autoload.php';
 ```
 
-## A Simple Example :
+## A Simple Example
 
 ``` php
 require 'vendor/autoload.php';
