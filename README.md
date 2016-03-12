@@ -31,7 +31,7 @@ require 'vendor/autoload.php';
 ``` php
 require 'vendor/autoload.php';
 
-use Collection\Collection as Collection;
+use Collection\Collection;
 
 $collection = Collection::make([1, 2, 3]);
 
