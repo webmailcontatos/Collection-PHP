@@ -18,7 +18,7 @@
  <property name="phpmd"   value="${basedir}/build/tools/phpmd.phar"/>
  <property name="phpunit" value="${basedir}/build/tools/phpunit.phar"/> -->
 
- <!-- Use this when the tools are managed by Composer in ${basedir}/vendor/bin --->
+ <!-- Use this when the tools are managed by Composer in ${basedir}/vendor/bin -->
  <property name="composer" value="composer"/>
  <property name="pdepend" value="${basedir}/vendor/bin/pdepend"/>
  <property name="phpcpd"  value="${basedir}/vendor/bin/phpcpd"/>
