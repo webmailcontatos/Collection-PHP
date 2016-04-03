@@ -85,7 +85,7 @@
 <target name="composer-install"
          unless="composer-install.done"
          description="Dependency Manager for PHP">
-  <exec executable="${composer}" taskname="composer-install">
+  <exec executable="${composer}" failonerror="true"  taskname="composer-install">
    <arg value="install" />
   </exec>
 
