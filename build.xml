@@ -19,6 +19,7 @@
  <property name="phpunit" value="${basedir}/build/tools/phpunit.phar"/> -->
 
  <!-- Use this when the tools are managed by Composer in ${basedir}/vendor/bin --->
+ <property name="composer" value="composer"/>
  <property name="pdepend" value="${basedir}/vendor/bin/pdepend"/>
  <property name="phpcpd"  value="${basedir}/vendor/bin/phpcpd"/>
  <property name="phpcs"   value="${basedir}/vendor/bin/phpcs"/>
@@ -81,6 +82,16 @@
   <property name="prepare.done" value="true"/>
  </target>
 
+<target name="composer"
+         unless="composer.done"
+         description="Dependency Manager for PHP">
+  <exec executable="${composer}" taskname="composer">
+   <arg value="install" />
+  </exec>
+
+  <property name="phpcpd.done" value="true"/>
+ </target>
+ 
  <target name="lint"
          unless="lint.done"
          description="Perform syntax check of sourcecode files">
