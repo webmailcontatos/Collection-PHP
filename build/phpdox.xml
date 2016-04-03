@@ -1,4 +1,4 @@
-<phpdox xmlns="http://phpdox.net/config">
+<phpdox>
  <project name="Collection - PHP" source="src" workdir="build/phpdox">
   <collector publiconly="false">
    <include mask="*.php" />
