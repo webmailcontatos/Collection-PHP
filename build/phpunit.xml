@@ -13,10 +13,10 @@
 </logging>
     <filter>
         <whitelist >
-            <file>src/Collection.php</file>
-            <file>src/Tools/Helpers.php</file>
-            <file>src/Tools/Arr.php</file>
-            <file>src/Tools/Macroable.php</file>
+            <file>../src/Collection.php</file>
+            <file>../src/Tools/Helpers.php</file>
+            <file>../src/Tools/Arr.php</file>
+            <file>../src/Tools/Macroable.php</file>
         </whitelist>
     </filter>   
 
