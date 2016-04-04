@@ -11,28 +11,25 @@ use Collection\Interfaces\Arrayable;
  */
 
 /**
- * Description of Colors
+ * Description of Colors.
  *
  * @author thiagoguimaraes
  */
 class Colors implements Arrayable
 {
-
     private $colors = [];
-
 
     public function setColor($color)
     {
         $this->colors[] = $color;
+    }
 
-    }//end setColor()
-
+//end setColor()
 
     public function toArray()
     {
         return $this->colors;
+    }
 
-    }//end toArray()
-
-
+//end toArray()
 }//end class
