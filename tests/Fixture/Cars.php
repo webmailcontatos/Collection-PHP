@@ -11,28 +11,25 @@ use Collection\Interfaces\Jsonable;
  */
 
 /**
- * Description of Colors
+ * Description of Colors.
  *
  * @author thiagoguimaraes
  */
 class Cars implements Jsonable
 {
-
     private $types = [];
-
 
     public function setType($type)
     {
         $this->types[] = $type;
+    }
 
-    }//end setType()
+//end setType()
 
-
-    public function toJson($options=0)
+    public function toJson($options = 0)
     {
         return json_encode($this->types, $options);
+    }
 
-    }//end toJson()
-
-
+//end toJson()
 }//end class

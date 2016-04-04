@@ -13,88 +13,85 @@ use PHPUnit_Framework_TestCase;
  */
 
 /**
- * Description of HelpersTest
+ * Description of HelpersTest.
  *
  * @author thiagoguimaraes
  */
 class HelpersTest extends PHPUnit_Framework_TestCase
 {
-
-
     public function testDataGetReturnDefault()
     {
-        $target   = [
+        $target = [
                      1,
                      2,
                      3,
                     ];
-        $key      = [
+        $key = [
                      4,
                      5,
                      6,
                     ];
-        $default  = null;
-        $result   = Helpers::dataGet($target, $key, $default);
+        $default = null;
+        $result = Helpers::dataGet($target, $key, $default);
         $expected = $default;
         $this->assertEquals($expected, $result);
+    }
 
-    }//end testDataGetReturnDefault()
-
+//end testDataGetReturnDefault()
 
     public function testDataGetTargetCollection()
     {
-        $target   = new Collection([1, 2, 3]);
-        $key      = [
+        $target = new Collection([1, 2, 3]);
+        $key = [
                      4,
                      5,
                      6,
                     ];
-        $default  = null;
-        $result   = Helpers::dataGet($target, $key, $default);
+        $default = null;
+        $result = Helpers::dataGet($target, $key, $default);
         $expected = $default;
         $this->assertEquals($expected, $result);
+    }
 
-    }//end testDataGetTargetCollection()
-
+//end testDataGetTargetCollection()
 
     public function testDataGetTargetCollectionReturnFirtsElementeKey()
     {
-        $target   = new Collection([45 => 45]);
-        $key      = [0 => 45];
-        $default  = null;
-        $result   = Helpers::dataGet($target, $key, $default);
+        $target = new Collection([45 => 45]);
+        $key = [0 => 45];
+        $default = null;
+        $result = Helpers::dataGet($target, $key, $default);
         $expected = 45;
         $this->assertEquals($expected, $result);
+    }
 
-    }//end testDataGetTargetCollectionReturnFirtsElementeKey()
-
+//end testDataGetTargetCollectionReturnFirtsElementeKey()
 
     public function testDataGetTargetObject()
     {
-        $target   = new \stdClass();
-        $key      = [
+        $target = new \stdClass();
+        $key = [
                      4,
                      5,
                      6,
                     ];
-        $default  = null;
-        $result   = Helpers::dataGet($target, $key, $default);
+        $default = null;
+        $result = Helpers::dataGet($target, $key, $default);
         $expected = $default;
         $this->assertEquals($expected, $result);
+    }
 
-    }//end testDataGetTargetObject()
-
+//end testDataGetTargetObject()
 
     public function testDataGetTargetObjectTryCoverage()
     {
-        $target       = new \stdClass();
+        $target = new \stdClass();
         $target->nome = 'Thiago';
-        $key          = ['nome'];
-        $result       = Helpers::dataGet($target, $key, null);
-        $expected     = 'Thiago';
+        $key = ['nome'];
+        $result = Helpers::dataGet($target, $key, null);
+        $expected = 'Thiago';
         $this->assertEquals($expected, $result);
+    }
 
-    }//end testDataGetTargetObjectTryCoverage()
-
-
+//end testDataGetTargetObjectTryCoverage()
 }//end class

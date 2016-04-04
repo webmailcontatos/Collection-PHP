@@ -12,21 +12,20 @@ use Closure;
  */
 
 /**
- * Description of Helpers
+ * Description of Helpers.
  */
 class Helpers
 {
-
-
     /**
      * Get an item from an array or object using "dot" notation.
      *
-     * @param  mixed        $target  Alvo
-     * @param  string|array $key     Chave
-     * @param  mixed        $default Default
+     * @param mixed        $target  Alvo
+     * @param string|array $key     Chave
+     * @param mixed        $default Default
+     *
      * @return mixed
      */
-    public static function dataGet($target, $key, $default=null)
+    public static function dataGet($target, $key, $default = null)
     {
         if ($key === null) {
             return $target;
@@ -41,13 +40,13 @@ class Helpers
                 }
 
                 $target = $target[$segment];
-            } else if ($target instanceof ArrayAccess) {
+            } elseif ($target instanceof ArrayAccess) {
                 if (isset($target[$segment]) === false) {
                     return self::value($default);
                 }
 
                 $target = $target[$segment];
-            } else if (is_object($target) === true) {
+            } elseif (is_object($target) === true) {
                 if (isset($target->{$segment}) === false) {
                     return self::value($default);
                 }
@@ -59,26 +58,25 @@ class Helpers
         }//end foreach
 
         return $target;
+    }
 
-    }//end dataGet()
-
+//end dataGet()
 
     /**
      * Return the default value of the given value.
      *
-     * @param  mixed $value Valor
+     * @param mixed $value Valor
+     *
      * @return mixed
      */
     public static function value($value)
     {
         if ($value instanceof Closure) {
             return $value();
-
         }
 
-          return $value;
+        return $value;
+    }
 
-    }//end value()
-
-
+//end value()
 }//end class

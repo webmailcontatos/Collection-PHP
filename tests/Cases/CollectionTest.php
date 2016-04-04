@@ -8,14 +8,12 @@ use Exception;
 use PHPUnit_Framework_TestCase;
 
 /**
- * Description of CollectionTest
+ * Description of CollectionTest.
  *
  * @author thiagoguimaraes
  */
 class CollectionTest extends PHPUnit_Framework_TestCase
 {
-
-
     public function testMethodObjectItens()
     {
         $person1 = new Person();
@@ -33,9 +31,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $result = $filter->all();
         $this->assertEquals(1, count($result));
         $this->assertEquals('Thiago', $result[0]->getName());
+    }
 
-    }//end testMethodObjectItens()
-
+//end testMethodObjectItens()
 
     public function testMethodAll()
     {
@@ -46,9 +44,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         ];
         $collection = new Collection($all);
         $this->assertEquals($all, $collection->all());
+    }
 
-    }//end testMethodAll()
-
+//end testMethodAll()
 
     public function testConcatObject()
     {
@@ -62,9 +60,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $expected = '[1,2,3]Thiago';
 
         $this->assertEquals($expected, $result);
+    }
 
-    }//end testConcatObject()
-
+//end testConcatObject()
 
     public function testMethodArrayAcess()
     {
@@ -87,9 +85,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         }
 
         $this->assertEquals($expected, $result);
+    }
 
-    }//end testMethodArrayAcess()
-
+//end testMethodArrayAcess()
 
     public function testMethodChunk()
     {
@@ -105,9 +103,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $collection = new Collection($all);
         $chunks = $collection->chunk(4);
         $this->assertEquals([[1, 2, 3, 4], [5, 6, 7]], $chunks->toArray());
+    }
 
-    }//end testMethodChunk()
-
+//end testMethodChunk()
 
     public function testMethodCollapse()
     {
@@ -129,9 +127,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $collection = new Collection($all);
         $collapse = $collection->collapse();
         $this->assertEquals([1, 2, 3, 4, 5, 6, 7, 8, 9], $collapse->all());
+    }
 
-    }//end testMethodCollapse()
-
+//end testMethodCollapse()
 
     public function testMethodContains()
     {
@@ -145,20 +143,20 @@ class CollectionTest extends PHPUnit_Framework_TestCase
             [
                 [
                     'product' => 'Desk',
-                    'price' => 200,
+                    'price'   => 200,
                 ],
                 [
                     'product' => 'Chair',
-                    'price' => 100,
+                    'price'   => 100,
                 ],
             ]
         );
 
         $this->assertFalse($findKeyAndValue->contains('product', 'Bookcase'));
         $this->assertTrue($findKeyAndValue->contains('product', 'Desk'));
+    }
 
-    }//end testMethodContains()
-
+//end testMethodContains()
 
     public function testMethodContainsClosure()
     {
@@ -169,17 +167,17 @@ class CollectionTest extends PHPUnit_Framework_TestCase
                 $this->assertFalse(($value > 5));
             }
         );
+    }
 
-    }//end testMethodContainsClosure()
-
+//end testMethodContainsClosure()
 
     public function testMethodCount()
     {
         $collection = new Collection([1, 2, 3, 4]);
         $this->assertEquals(4, $collection->count());
+    }
 
-    }//end testMethodCount()
-
+//end testMethodCount()
 
     public function testMethodDiff()
     {
@@ -192,16 +190,16 @@ class CollectionTest extends PHPUnit_Framework_TestCase
             4 => 5,
         ];
         $this->assertEquals($expected, $result);
+    }
 
-    }//end testMethodDiff()
-
+//end testMethodDiff()
 
     public function testMethodEach()
     {
         $collection = new Collection([1, 2, 3, 4, 5]);
         $collection->each(
             function ($item, $key) {
-                echo $key . '=>' . $item . PHP_EOL;
+                echo $key.'=>'.$item.PHP_EOL;
             }
         );
         $this->expectOutputString(
@@ -212,9 +210,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
 4=>5
 '
         );
+    }
 
-    }//end testMethodEach()
-
+//end testMethodEach()
 
     /**
      * @SEE For the inverse of filter, see the reject method.
@@ -230,23 +228,24 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals([2 => 3, 3 => 4], $filtered->all());
+    }
 
-    }//end testMethodFilter()
-
+//end testMethodFilter()
 
     public function testMethodFirst()
     {
         $collect = (new Collection([1, 2, 3, 4]))->first(
             function ($key, $value) {
                 unset($key);
+
                 return $value > 2;
             }
         );
         $this->assertEquals(3, $collect);
         $this->assertEquals(1, (new Collection([1, 2, 3, 4]))->first());
+    }
 
-    }//end testMethodFirst()
-
+//end testMethodFirst()
 
     public function testMethodFlatten()
     {
@@ -255,9 +254,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $flattened = $collection->flatten();
 
         $this->assertEquals(['taylor', 'php', 'javascript'], $flattened->all());
+    }
 
-    }//end testMethodFlatten()
-
+//end testMethodFlatten()
 
     public function testMethodFlip()
     {
@@ -266,9 +265,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $flipped = $collection->flip();
 
         $this->assertEquals(['taylor' => 'name', 'laravel' => 'framework'], $flipped->all());
+    }
 
-    }//end testMethodFlip()
-
+//end testMethodFlip()
 
     public function testMethodForget()
     {
@@ -277,18 +276,18 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $collection->forget('name');
 
         $this->assertEquals(['framework' => 'laravel'], $collection->all());
+    }
 
-    }//end testMethodForget()
-
+//end testMethodForget()
 
     public function testMethodForPage()
     {
         $collection = (new Collection([1, 2, 3, 4, 5, 6, 7, 8, 9]))->forPage(2, 3);
 
         $this->assertEquals([4, 5, 6], $collection->all());
+    }
 
-    }//end testMethodForPage()
-
+//end testMethodForPage()
 
     public function testMethodGet()
     {
@@ -306,9 +305,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
             }
         );
         $this->assertEquals('default-value', $testClosure);
+    }
 
-    }//end testMethodGet()
-
+//end testMethodGet()
 
     public function testMethodGroupBy()
     {
@@ -316,15 +315,15 @@ class CollectionTest extends PHPUnit_Framework_TestCase
             [
                 [
                     'account_id' => 'account-x10',
-                    'product' => 'Chair',
+                    'product'    => 'Chair',
                 ],
                 [
                     'account_id' => 'account-x10',
-                    'product' => 'Bookcase',
+                    'product'    => 'Bookcase',
                 ],
                 [
                     'account_id' => 'account-x11',
-                    'product' => 'Desk',
+                    'product'    => 'Desk',
                 ],
             ]
         );
@@ -336,24 +335,24 @@ class CollectionTest extends PHPUnit_Framework_TestCase
             'account-x10' => [
                 [
                     'account_id' => 'account-x10',
-                    'product' => 'Chair',
+                    'product'    => 'Chair',
                 ],
                 [
                     'account_id' => 'account-x10',
-                    'product' => 'Bookcase',
+                    'product'    => 'Bookcase',
                 ],
             ],
             'account-x11' => [
                 [
                     'account_id' => 'account-x11',
-                    'product' => 'Desk',
+                    'product'    => 'Desk',
                 ],
             ],
         ];
         $this->assertEquals($expected, $result);
+    }
 
-    }//end testMethodGroupBy()
-
+//end testMethodGroupBy()
 
     public function testMethodHas()
     {
@@ -361,9 +360,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
 
         $this->assertFalse($collection->has('email'));
         $this->assertTrue($collection->has('product'));
+    }
 
-    }//end testMethodHas()
-
+//end testMethodHas()
 
     public function testMethodImplode()
     {
@@ -371,11 +370,11 @@ class CollectionTest extends PHPUnit_Framework_TestCase
             [
                 [
                     'account_id' => 1,
-                    'product' => 'Desk',
+                    'product'    => 'Desk',
                 ],
                 [
                     'account_id' => 2,
-                    'product' => 'Chair',
+                    'product'    => 'Chair',
                 ],
             ]
         );
@@ -383,9 +382,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $result = $collection->implode('product', ', ');
         $expected = 'Desk, Chair';
         $this->assertEquals($expected, $result);
+    }
 
-    }//end testMethodImplode()
-
+//end testMethodImplode()
 
     public function testMethodIntersect()
     {
@@ -394,17 +393,17 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $intersect = $collection->intersect(['Desk', 'Chair', 'Bookcase']);
 
         $this->assertEquals([0 => 'Desk', 2 => 'Chair'], $intersect->all());
+    }
 
-    }//end testMethodIntersect()
-
+//end testMethodIntersect()
 
     public function testMethodIsEmpty()
     {
         $this->assertTrue((new Collection([]))->isEmpty());
         $this->assertFalse((new Collection([1, 2, 3]))->isEmpty());
+    }
 
-    }//end testMethodIsEmpty()
-
+//end testMethodIsEmpty()
 
     public function testMethodKeyBy()
     {
@@ -412,11 +411,11 @@ class CollectionTest extends PHPUnit_Framework_TestCase
             [
                 [
                     'product_id' => 'prod-100',
-                    'name' => 'desk',
+                    'name'       => 'desk',
                 ],
                 [
                     'product_id' => 'prod-200',
-                    'name' => 'chair',
+                    'name'       => 'chair',
                 ],
             ]
         );
@@ -427,17 +426,17 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $expected = [
             'prod-100' => [
                 'product_id' => 'prod-100',
-                'name' => 'desk',
+                'name'       => 'desk',
             ],
             'prod-200' => [
                 'product_id' => 'prod-200',
-                'name' => 'chair',
+                'name'       => 'chair',
             ],
         ];
         $this->assertEquals($expected, $result);
+    }
 
-    }//end testMethodKeyBy()
-
+//end testMethodKeyBy()
 
     public function testMethodKeys()
     {
@@ -445,34 +444,35 @@ class CollectionTest extends PHPUnit_Framework_TestCase
             [
                 'prod-100' => [
                     'product_id' => 'prod-100',
-                    'name' => 'Desk',
+                    'name'       => 'Desk',
                 ],
                 'prod-200' => [
                     'product_id' => 'prod-200',
-                    'name' => 'Chair',
+                    'name'       => 'Chair',
                 ],
             ]
         );
 
         $keys = $collection->keys();
         $this->assertEquals(['prod-100', 'prod-200'], $keys->all());
+    }
 
-    }//end testMethodKeys()
-
+//end testMethodKeys()
 
     public function testMethodLast()
     {
         $collection = (new Collection([1, 2, 3, 4]))->last(
             function ($key, $value) {
                 unset($key);
+
                 return $value < 3;
             }
         );
         $this->assertEquals(2, $collection);
         $this->assertEquals(4, ((new Collection([1, 2, 3, 4]))->last()));
+    }
 
-    }//end testMethodLast()
-
+//end testMethodLast()
 
     public function testMethodMap()
     {
@@ -481,14 +481,15 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $multiplied = $collection->map(
             function ($item, $key) {
                 unset($key);
-                return ($item * 2);
+
+                return $item * 2;
             }
         );
 
         $this->assertEquals([2, 4, 6, 8, 10], $multiplied->all());
+    }
 
-    }//end testMethodMap()
-
+//end testMethodMap()
 
     public function testMethodMerge()
     {
@@ -499,14 +500,14 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $result = $merged->all();
         $expected = [
             'product_id' => 1,
-            'name' => 'Desk',
-            'price' => 100,
-            'discount' => false,
+            'name'       => 'Desk',
+            'price'      => 100,
+            'discount'   => false,
         ];
         $this->assertEquals($expected, $result);
+    }
 
-    }//end testMethodMerge()
-
+//end testMethodMerge()
 
     public function testMethodPluck()
     {
@@ -514,11 +515,11 @@ class CollectionTest extends PHPUnit_Framework_TestCase
             [
                 [
                     'product_id' => 'prod-100',
-                    'name' => 'Desk',
+                    'name'       => 'Desk',
                 ],
                 [
                     'product_id' => 'prod-200',
-                    'name' => 'Chair',
+                    'name'       => 'Chair',
                 ],
             ]
         );
@@ -531,18 +532,18 @@ class CollectionTest extends PHPUnit_Framework_TestCase
             'Chair',
         ];
         $this->assertEquals($expected, $result);
+    }
 
-    }//end testMethodPluck()
-
+//end testMethodPluck()
 
     public function testMethodPop()
     {
         $collection = new Collection([1, 2, 3, 4, 5]);
         $this->assertEquals(5, $collection->pop());
         $this->assertEquals([1, 2, 3, 4], $collection->all());
+    }
 
-    }//end testMethodPop()
-
+//end testMethodPop()
 
     public function testMethodPrepend()
     {
@@ -551,9 +552,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $collection->prepend(0);
 
         $this->assertEquals([0, 1, 2, 3, 4, 5], $collection->all());
+    }
 
-    }//end testMethodPrepend()
-
+//end testMethodPrepend()
 
     public function testMethodPull()
     {
@@ -561,9 +562,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals('Desk', $collection->pull('name'));
         $this->assertEquals(['product_id' => 'prod-100'], $collection->all());
+    }
 
-    }//end testMethodPull()
-
+//end testMethodPull()
 
     public function testMethodPush()
     {
@@ -572,9 +573,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $collection->push(5);
 
         $this->assertEquals([1, 2, 3, 4, 5], $collection->all());
+    }
 
-    }//end testMethodPush()
-
+//end testMethodPush()
 
     public function testMethodPut()
     {
@@ -583,9 +584,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $collection->put('price', 100);
 
         $this->assertEquals(['product_id' => 1, 'name' => 'Desk', 'price' => 100], $collection->all());
+    }
 
-    }//end testMethodPut()
-
+//end testMethodPut()
 
     public function testMethodRandom()
     {
@@ -599,9 +600,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $collection = new Collection($array);
 
         $this->assertTrue(in_array($collection->random(), $array));
+    }
 
-    }//end testMethodRandom()
-
+//end testMethodRandom()
 
     public function testMethodReduce()
     {
@@ -609,13 +610,13 @@ class CollectionTest extends PHPUnit_Framework_TestCase
 
         $total = $collection->reduce(
             function ($carry, $item) {
-                return ($carry + $item);
+                return $carry + $item;
             }
         );
         $this->assertEquals(6, $total);
+    }
 
-    }//end testMethodReduce()
-
+//end testMethodReduce()
 
     public function testMethodReject()
     {
@@ -628,9 +629,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals([1, 2], $filtered->all());
+    }
 
-    }//end testMethodReject()
-
+//end testMethodReject()
 
     public function testMethodReverse()
     {
@@ -639,9 +640,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $reversed = $collection->reverse();
 
         $this->assertEquals([5, 4, 3, 2, 1], $reversed->all());
+    }
 
-    }//end testMethodReverse()
-
+//end testMethodReverse()
 
     public function testMethodSearch()
     {
@@ -649,18 +650,18 @@ class CollectionTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(1, $collection->search(4));
         $this->assertEquals(false, $collection->search('4', true));
+    }
 
-    }//end testMethodSearch()
-
+//end testMethodSearch()
 
     public function testMethodShift()
     {
         $collection = new Collection([1, 2, 3, 4, 5]);
         $this->assertEquals(1, $collection->shift());
         $this->assertEquals([2, 3, 4, 5], $collection->all());
+    }
 
-    }//end testMethodShift()
-
+//end testMethodShift()
 
     public function testMethodShuffle()
     {
@@ -675,9 +676,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $collection->shuffle();
         $this->assertEquals(120, array_product($collection->all()));
         $this->assertEquals($array, $collection->sort()->toArray());
+    }
 
-    }//end testMethodShuffle()
-
+//end testMethodShuffle()
 
     public function testMethodSlice()
     {
@@ -686,9 +687,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $slice = $collection->slice(4);
 
         $this->assertEquals([5, 6, 7, 8, 9, 10], $slice->all());
+    }
 
-    }//end testMethodSlice()
-
+//end testMethodSlice()
 
     public function testMethodSort()
     {
@@ -697,24 +698,24 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $sorted = $collection->sort();
 
         $this->assertEquals([1, 2, 3, 4, 5], $sorted->values()->all());
+    }
 
-    }//end testMethodSort()
-
+//end testMethodSort()
 
     public function testMethodSortBy()
     {
         $collection = new Collection(
             [
                 [
-                    'name' => 'Desk',
+                    'name'  => 'Desk',
                     'price' => 200,
                 ],
                 [
-                    'name' => 'Chair',
+                    'name'  => 'Chair',
                     'price' => 100,
                 ],
                 [
-                    'name' => 'Bookcase',
+                    'name'  => 'Bookcase',
                     'price' => 150,
                 ],
             ]
@@ -725,37 +726,37 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $result = $sorted->values()->all();
         $expected = [
             [
-                'name' => 'Chair',
+                'name'  => 'Chair',
                 'price' => 100,
             ],
             [
-                'name' => 'Bookcase',
+                'name'  => 'Bookcase',
                 'price' => 150,
             ],
             [
-                'name' => 'Desk',
+                'name'  => 'Desk',
                 'price' => 200,
             ],
         ];
         $this->assertEquals($expected, $result);
+    }
 
-    }//end testMethodSortBy()
-
+//end testMethodSortBy()
 
     public function testMethodSortByDesc()
     {
         $collection = new Collection(
             [
                 [
-                    'name' => 'Desk',
+                    'name'  => 'Desk',
                     'price' => 200,
                 ],
                 [
-                    'name' => 'Chair',
+                    'name'  => 'Chair',
                     'price' => 100,
                 ],
                 [
-                    'name' => 'Bookcase',
+                    'name'  => 'Bookcase',
                     'price' => 150,
                 ],
             ]
@@ -766,23 +767,23 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $result = $sorted->values()->all();
         $expected = [
             [
-                'name' => 'Desk',
+                'name'  => 'Desk',
                 'price' => 200,
             ],
             [
-                'name' => 'Bookcase',
+                'name'  => 'Bookcase',
                 'price' => 150,
             ],
             [
-                'name' => 'Chair',
+                'name'  => 'Chair',
                 'price' => 100,
             ],
         ];
 
         $this->assertEquals($expected, $result);
+    }
 
-    }//end testMethodSortByDesc()
-
+//end testMethodSortByDesc()
 
     public function testMethodSplice()
     {
@@ -793,17 +794,17 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $this->assertEquals([3, 4, 5], $chunk->all());
 
         $this->assertEquals([1, 2], $collection->all());
+    }
 
-    }//end testMethodSplice()
-
+//end testMethodSplice()
 
     public function testMethodSum()
     {
         $sum = (new Collection([1, 2, 3, 4, 5]))->sum();
         $this->assertEquals(15, $sum);
+    }
 
-    }//end testMethodSum()
-
+//end testMethodSum()
 
     public function testMethodTake()
     {
@@ -812,32 +813,32 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $chunk = $collection->take(3);
 
         $this->assertEquals([0, 1, 2], $chunk->all());
+    }
 
-    }//end testMethodTake()
-
+//end testMethodTake()
 
     public function testMethodToArray()
     {
         $collection = new Collection(['name' => 'Desk', 'price' => 200]);
         $this->assertEquals(
             [
-                'name' => 'Desk',
+                'name'  => 'Desk',
                 'price' => 200,
             ],
             $collection->toArray()
         );
+    }
 
-    }//end testMethodToArray()
-
+//end testMethodToArray()
 
     public function testMethodToJason()
     {
         $collection = new Collection(['name' => 'Desk', 'price' => 200]);
 
         $this->assertEquals('{"name":"Desk","price":200}', $collection->toJson());
+    }
 
-    }//end testMethodToJason()
-
+//end testMethodToJason()
 
     public function testMethodTransform()
     {
@@ -846,14 +847,15 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $collection->transform(
             function ($item, $key) {
                 unset($key);
-                return ($item * 2);
+
+                return $item * 2;
             }
         );
 
         $this->assertEquals([2, 4, 6, 8, 10], $collection->all());
+    }
 
-    }//end testMethodTransform()
-
+//end testMethodTransform()
 
     public function testMethodUnique()
     {
@@ -862,9 +864,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $unique = $collection->unique();
 
         $this->assertEquals([1, 2, 3, 4], $unique->values()->all());
+    }
 
-    }//end testMethodUnique()
-
+//end testMethodUnique()
 
     public function testMethodValues()
     {
@@ -872,11 +874,11 @@ class CollectionTest extends PHPUnit_Framework_TestCase
             [
                 10 => [
                     'product' => 'Desk',
-                    'price' => 200,
+                    'price'   => 200,
                 ],
                 11 => [
                     'product' => 'Desk',
-                    'price' => 200,
+                    'price'   => 200,
                 ],
             ]
         );
@@ -887,18 +889,18 @@ class CollectionTest extends PHPUnit_Framework_TestCase
             [
                 0 => [
                     'product' => 'Desk',
-                    'price' => 200,
+                    'price'   => 200,
                 ],
                 1 => [
                     'product' => 'Desk',
-                    'price' => 200,
+                    'price'   => 200,
                 ],
             ],
             $values->all()
         );
+    }
 
-    }//end testMethodValues()
-
+//end testMethodValues()
 
     public function testMethodWhere()
     {
@@ -906,19 +908,19 @@ class CollectionTest extends PHPUnit_Framework_TestCase
             [
                 [
                     'product' => 'Desk',
-                    'price' => 200,
+                    'price'   => 200,
                 ],
                 [
                     'product' => 'Chair',
-                    'price' => 100,
+                    'price'   => 100,
                 ],
                 [
                     'product' => 'Bookcase',
-                    'price' => 150,
+                    'price'   => 150,
                 ],
                 [
                     'product' => 'Door',
-                    'price' => 100,
+                    'price'   => 100,
                 ],
             ]
         );
@@ -929,18 +931,18 @@ class CollectionTest extends PHPUnit_Framework_TestCase
             [
                 1 => [
                     'product' => 'Chair',
-                    'price' => 100,
+                    'price'   => 100,
                 ],
                 3 => [
                     'product' => 'Door',
-                    'price' => 100,
+                    'price'   => 100,
                 ],
             ],
             $filtered->all()
         );
+    }
 
-    }//end testMethodWhere()
-
+//end testMethodWhere()
 
     public function testMethodWhereLoose()
     {
@@ -948,19 +950,19 @@ class CollectionTest extends PHPUnit_Framework_TestCase
             [
                 [
                     'product' => 'Desk',
-                    'price' => 200,
+                    'price'   => 200,
                 ],
                 [
                     'product' => 'Chair',
-                    'price' => 100,
+                    'price'   => 100,
                 ],
                 [
                     'product' => 'Bookcase',
-                    'price' => 150,
+                    'price'   => 150,
                 ],
                 [
                     'product' => 'Door',
-                    'price' => 100,
+                    'price'   => 100,
                 ],
             ]
         );
@@ -971,18 +973,18 @@ class CollectionTest extends PHPUnit_Framework_TestCase
             [
                 1 => [
                     'product' => 'Chair',
-                    'price' => 100,
+                    'price'   => 100,
                 ],
                 3 => [
                     'product' => 'Door',
-                    'price' => 100,
+                    'price'   => 100,
                 ],
             ],
             $filtered->all()
         );
+    }
 
-    }//end testMethodWhereLoose()
-
+//end testMethodWhereLoose()
 
     public function testMethodZip()
     {
@@ -991,25 +993,25 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $zipped = $collection->zip([100, 200]);
 
         $this->assertEquals([['Chair', 100], ['Desk', 200]], $zipped->toArray());
+    }
 
-    }//end testMethodZip()
-
+//end testMethodZip()
 
     public function testMethodMax()
     {
         $collection = new Collection([1, 2, 3, 4, 5, 6]);
         $this->assertEquals(6, $collection->max());
+    }
 
-    }//end testMethodMax()
-
+//end testMethodMax()
 
     public function testMethodMin()
     {
         $collection = new Collection([1, 2, 3, 4, 5, 6]);
         $this->assertEquals(1, $collection->min());
+    }
 
-    }//end testMethodMin()
-
+//end testMethodMin()
 
     public function testMethodMake()
     {
@@ -1023,9 +1025,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         ];
         $collection = Collection::make($items);
         $this->assertInstanceOf('Collection\Collection', $collection);
+    }
 
-    }//end testMethodMake()
-
+//end testMethodMake()
 
     public function testMethodFetch()
     {
@@ -1040,9 +1042,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $collection = Collection::make($items);
         $fetch = $collection->fetch(1);
         $this->assertEquals([], $fetch->toArray());
+    }
 
-    }//end testMethodFetch()
-
+//end testMethodFetch()
 
     public function testMethodFilterTryCoverage()
     {
@@ -1057,9 +1059,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $collection = Collection::make($items);
         $filter = $collection->filter();
         $this->assertEquals($items, $filter->toArray());
+    }
 
-    }//end testMethodFilterTryCoverage()
-
+//end testMethodFilterTryCoverage()
 
     public function testMethodImplodeTryCoverage()
     {
@@ -1068,9 +1070,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $result = $collection->implode(',');
         $expected = '';
         $this->assertEquals($expected, $result);
+    }
 
-    }//end testMethodImplodeTryCoverage()
-
+//end testMethodImplodeTryCoverage()
 
     public function testMethodLists()
     {
@@ -1085,9 +1087,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $collection = Collection::make($items);
         $list = $collection->lists(2, 1);
         $this->assertEquals(['' => null], $list->toArray());
+    }
 
-    }//end testMethodLists()
-
+//end testMethodLists()
 
     public function testMethodRandoExpectedException()
     {
@@ -1104,16 +1106,17 @@ class CollectionTest extends PHPUnit_Framework_TestCase
             $collection->random(556);
         } catch (Exception $ex) {
             $this->assertEquals(
-                'You requested 556 items, ' . 'but there are only 6 items in ' . 'the collection',
+                'You requested 556 items, '.'but there are only 6 items in '.'the collection',
                 $ex->getMessage()
             );
+
             return;
         }
 
         $this->fail('Uma exception não foi lançada');
+    }
 
-    }//end testMethodRandoExpectedException()
-
+//end testMethodRandoExpectedException()
 
     public function testMethodToString()
     {
@@ -1125,11 +1128,11 @@ class CollectionTest extends PHPUnit_Framework_TestCase
             5,
             6,
         ];
-        $collection = (string)Collection::make($items);
+        $collection = (string) Collection::make($items);
         $this->assertEquals('[1,2,3,4,5,6]', $collection);
+    }
 
-    }//end testMethodToString()
-
+//end testMethodToString()
 
     public function testMethodToJsonSeriable()
     {
@@ -1145,9 +1148,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $result = $collection->jsonSerialize();
         $expected = $items;
         $this->assertEquals($expected, $result);
+    }
 
-    }//end testMethodToJsonSeriable()
-
+//end testMethodToJsonSeriable()
 
     public function testMethodGetIterator()
     {
@@ -1163,9 +1166,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $result = $collection->getIterator();
 
         $this->assertInstanceOf('ArrayIterator', $result);
+    }
 
-    }//end testMethodGetIterator()
-
+//end testMethodGetIterator()
 
     public function testMethodGetCacheIterator()
     {
@@ -1180,9 +1183,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $collection = Collection::make($items);
         $result = $collection->getCachingIterator();
         $this->assertInstanceOf('CachingIterator', $result);
+    }
 
-    }//end testMethodGetCacheIterator()
-
+//end testMethodGetCacheIterator()
 
     public function testMethodOffSetGet()
     {
@@ -1198,9 +1201,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $result = $collection->offsetGet(1);
         $expected = 2;
         $this->assertEquals($expected, $result);
+    }
 
-    }//end testMethodOffSetGet()
-
+//end testMethodOffSetGet()
 
     public function testMethodRandomTryCoverage()
     {
@@ -1215,9 +1218,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $collection = Collection::make($items);
         $random = $collection->random(5);
         $this->assertEquals(5, $random->count());
+    }
 
-    }//end testMethodRandomTryCoverage()
-
+//end testMethodRandomTryCoverage()
 
     public function testMethodRejectTryCoverage()
     {
@@ -1232,9 +1235,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $collection = Collection::make($items);
         $collection->reject(null);
         $this->assertEquals($items, $collection->toArray());
+    }
 
-    }//end testMethodRejectTryCoverage()
-
+//end testMethodRejectTryCoverage()
 
     public function testMethodSearchTryCoverage()
     {
@@ -1253,9 +1256,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
             }
         );
         $this->assertEquals($items, $collection->toArray());
+    }
 
-    }//end testMethodSearchTryCoverage()
-
+//end testMethodSearchTryCoverage()
 
     public function testMethodForceCoverageEach()
     {
@@ -1274,9 +1277,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
             }
         );
         $this->assertEquals($items, $collection->toArray());
+    }
 
-    }//end testMethodForceCoverageEach()
-
+//end testMethodForceCoverageEach()
 
     public function testMethodSearchCoverageForce()
     {
@@ -1295,9 +1298,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
             }
         );
         $this->assertEquals(0, $search);
+    }
 
-    }//end testMethodSearchCoverageForce()
-
+//end testMethodSearchCoverageForce()
 
     public function testMethodSpliceForceCoverage()
     {
@@ -1312,9 +1315,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $collection = Collection::make($items);
         $splice = $collection->splice(1, 1, []);
         $this->assertEquals([2], $splice->toArray());
+    }
 
-    }//end testMethodSpliceForceCoverage()
-
+//end testMethodSpliceForceCoverage()
 
     public function testMethodSumForceCoverage()
     {
@@ -1333,9 +1336,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
             }
         );
         $this->assertEquals($items, $collection->toArray());
+    }
 
-    }//end testMethodSumForceCoverage()
-
+//end testMethodSumForceCoverage()
 
     public function testMethodTakeForceCoverage()
     {
@@ -1350,9 +1353,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $collection = Collection::make($items);
         $collection->take(-1);
         $this->assertEquals($items, $collection->toArray());
+    }
 
-    }//end testMethodTakeForceCoverage()
-
+//end testMethodTakeForceCoverage()
 
     public function testUniqueForceCoverage()
     {
@@ -1367,9 +1370,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $collection = Collection::make($items);
         $unique = $collection->unique(1);
         $this->assertEquals([1], $unique->toArray());
+    }
 
-    }//end testUniqueForceCoverage()
-
+//end testUniqueForceCoverage()
 
     public function testForceCoverage()
     {
@@ -1394,9 +1397,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $cars->setType('Hatch');
         $collection4 = new Collection($cars);
         $this->assertEquals('["Sedam","Hatch"]', $collection4->toJson());
+    }
 
-    }//end testForceCoverage()
-
+//end testForceCoverage()
 
     public function testGetCollectionIfGetKeyIsArray()
     {
@@ -1405,9 +1408,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf(Collection::class, $result);
 
         $this->assertEquals(123, $result->first());
+    }
 
-    }//end testGetCollectionIfGetKeyIsArray()
-
+//end testGetCollectionIfGetKeyIsArray()
 
     public function testEachGetCollectionIfGetKeyIsArray()
     {
@@ -1419,25 +1422,25 @@ class CollectionTest extends PHPUnit_Framework_TestCase
                 $this->assertEquals(123, $item->first());
             }
         );
+    }
 
-    }//end testEachGetCollectionIfGetKeyIsArray()
-
+//end testEachGetCollectionIfGetKeyIsArray()
 
     public function testIsArrayFalse()
     {
         $collection = new Collection([1, 2, 3]);
         $this->assertFalse(is_array($collection));
+    }
 
-    }//end testIsArrayFalse()
-
+//end testIsArrayFalse()
 
     public function testIsObjectTrue()
     {
         $collection = new Collection([1, 2, 3]);
         $this->assertTrue(is_object($collection));
+    }
 
-    }//end testIsObjectTrue()
-
+//end testIsObjectTrue()
 
     public function testFirstReturNewCollection()
     {
@@ -1446,9 +1449,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf(Collection::class, $value);
         $this->assertEquals('first', $value->first());
+    }
 
-    }//end testFirstReturNewCollection()
-
+//end testFirstReturNewCollection()
 
     public function testLastReturNewCollection()
     {
@@ -1457,9 +1460,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf(Collection::class, $value);
         $this->assertEquals('last', $value->last());
+    }
 
-    }//end testLastReturNewCollection()
-
+//end testLastReturNewCollection()
 
     public function testGetAndRemove()
     {
@@ -1476,9 +1479,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
             ],
             $collection->toArray()
         );
+    }
 
-    }//end testGetAndRemove()
-
+//end testGetAndRemove()
 
     public function testGetAndRemoveBooleanValueTrue()
     {
@@ -1495,9 +1498,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
             ],
             $collection->toArray()
         );
+    }
 
-    }//end testGetAndRemoveBooleanValueTrue()
-
+//end testGetAndRemoveBooleanValueTrue()
 
     public function testGetAndRemoveBooleanValueFalse()
     {
@@ -1514,9 +1517,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
             ],
             $collection->toArray()
         );
+    }
 
-    }//end testGetAndRemoveBooleanValueFalse()
-
+//end testGetAndRemoveBooleanValueFalse()
 
     public function testGetAndRemoveBooleanValueBlank()
     {
@@ -1533,9 +1536,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
             ],
             $collection->toArray()
         );
+    }
 
-    }//end testGetAndRemoveBooleanValueBlank()
-
+//end testGetAndRemoveBooleanValueBlank()
 
     public function testGetAndRemoveBooleanValueSpace()
     {
@@ -1552,9 +1555,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
             ],
             $collection->toArray()
         );
+    }
 
-    }//end testGetAndRemoveBooleanValueSpace()
-
+//end testGetAndRemoveBooleanValueSpace()
 
     public function testGetAndRemoveBooleanValueNull()
     {
@@ -1571,9 +1574,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
             ],
             $collection->toArray()
         );
+    }
 
-    }//end testGetAndRemoveBooleanValueNull()
-
+//end testGetAndRemoveBooleanValueNull()
 
     public function testMoveElementKeyNumeric()
     {
@@ -1585,9 +1588,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
             'Vasco',
         ];
         $this->assertSame($expected, $result->toArray());
+    }
 
-    }//end testMoveElementKeyNumeric()
-
+//end testMoveElementKeyNumeric()
 
     public function testMoveElementKeyString()
     {
@@ -1606,9 +1609,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         ];
 
         $this->assertSame($expected, $result->toArray());
+    }
 
-    }//end testMoveElementKeyString()
-
+//end testMoveElementKeyString()
 
     public function testModify()
     {
@@ -1624,14 +1627,13 @@ class CollectionTest extends PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf(Collection::class, $new);
         $this->assertSame(['srt1' => 'srt1', 'srt2' => 'srt2', 'srt3' => 'srt3'], $new->toArray());
+    }
 
-    }//end testModify()
+//end testModify()
 
     public function testNoNotice()
     {
         $collection = new Collection([1, 2, 3]);
         $this->assertNull($collection[3]);
     }
-
-
 }//end class

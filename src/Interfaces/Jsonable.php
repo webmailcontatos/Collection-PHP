@@ -4,15 +4,12 @@ namespace Collection\Interfaces;
 
 interface Jsonable
 {
-
-
     /**
      * Convert the object to its JSON representation.
      *
-     * @param  integer $options Opções
+     * @param int $options Opções
+     *
      * @return string
      */
-    public function toJson($options=0);
-
-
+    public function toJson($options = 0);
 }//end interface
