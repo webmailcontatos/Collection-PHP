@@ -60,8 +60,7 @@ class Helpers
         return $target;
     }
 
-//end dataGet()
-
+// end dataGet()
     /**
      * Return the default value of the given value.
      *
@@ -78,5 +77,5 @@ class Helpers
         return $value;
     }
 
-//end value()
+// end value()
 }//end class

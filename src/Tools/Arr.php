@@ -30,8 +30,7 @@ class Arr
         return $array;
     }
 
-//end add()
-
+// end add()
     /**
      * Build a new array using a callback.
      *
@@ -53,8 +52,7 @@ class Arr
         return $results;
     }
 
-//end build()
-
+// end build()
     /**
      * Collapse an array of arrays into a single array.
      *
@@ -77,8 +75,7 @@ class Arr
         return $results;
     }
 
-//end collapse()
-
+// end collapse()
     /**
      * Divide an array into two arrays. One with keys and the other with values.
      *
@@ -94,8 +91,7 @@ class Arr
                ];
     }
 
-//end divide()
-
+// end divide()
     /**
      * Flatten a multi-dimensional associative array with dots.
      *
@@ -119,8 +115,7 @@ class Arr
         return $results;
     }
 
-//end dot()
-
+// end dot()
     /**
      * Get all of the given array except for a specified array of items.
      *
@@ -136,8 +131,7 @@ class Arr
         return $array;
     }
 
-//end except()
-
+// end except()
     /**
      * Fetch a flattened array of a nested array element.
      *
@@ -166,8 +160,7 @@ class Arr
         return array_values($results);
     }
 
-//end fetch()
-
+// end fetch()
     /**
      * Return the first element in an array passing a given truth test.
      *
@@ -188,8 +181,7 @@ class Arr
         return Helpers::value($default);
     }
 
-//end first()
-
+// end first()
     /**
      * Return the last element in an array passing a given truth test.
      *
@@ -204,8 +196,7 @@ class Arr
         return static::first(array_reverse($array), $callback, $default);
     }
 
-//end last()
-
+// end last()
     /**
      * Flatten a multi-dimensional array into a single level.
      *
@@ -227,8 +218,7 @@ class Arr
         return $return;
     }
 
-//end flatten()
-
+// end flatten()
     /**
      * Remove one or many array items from a given array using "dot" notation.
      *
@@ -251,8 +241,7 @@ class Arr
         }
     }
 
-//end forget()
-
+// end forget()
     /**
      * Get an item from an array using "dot" notation.
      *
@@ -279,8 +268,7 @@ class Arr
         }
     }
 
-//end get()
-
+// end get()
     /**
      * Check if an item exists in an array using "dot" notation.
      *
@@ -302,8 +290,7 @@ class Arr
         }
     }
 
-//end has()
-
+// end has()
     /**
      * Determines if an array is associative.
      *
@@ -320,8 +307,7 @@ class Arr
         return array_keys($keys) !== $keys;
     }
 
-//end isAssoc()
-
+// end isAssoc()
     /**
      * Get a subset of the items from the given array.
      *
@@ -335,8 +321,7 @@ class Arr
         return array_intersect_key($array, array_flip((array) $keys));
     }
 
-//end only()
-
+// end only()
     /**
      * Pluck an array of values from an array.
      *
@@ -370,8 +355,7 @@ class Arr
         return $results;
     }
 
-//end pluck()
-
+// end pluck()
     /**
      * Explode the "value" and "key" arguments passed to "pluck".
      *
@@ -394,8 +378,7 @@ class Arr
                ];
     }
 
-//end explodePluckParameters()
-
+// end explodePluckParameters()
     /**
      * Get a value from the array, and remove it.
      *
@@ -414,8 +397,7 @@ class Arr
         return $value;
     }
 
-//end pull()
-
+// end pull()
     /**
      * Set an array item to a given value using "dot" notation.
      *
@@ -453,8 +435,7 @@ class Arr
         return $array;
     }
 
-//end set()
-
+// end set()
     /**
      * Sort the array using the given callback.
      *
@@ -468,8 +449,7 @@ class Arr
         return Collection::make($array)->sortBy($callback)->all();
     }
 
-//end sort()
-
+// end sort()
     /**
      * Recursively sort an array by keys and values.
      *
@@ -490,8 +470,7 @@ class Arr
         return $array;
     }
 
-//end sortRecursive()
-
+// end sortRecursive()
     /**
      * Filter the array using the given callback.
      *
@@ -513,5 +492,5 @@ class Arr
         return $filtered;
     }
 
-//end where()
+// end where()
 }//end class

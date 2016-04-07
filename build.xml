@@ -23,6 +23,7 @@
  <property name="pdepend" value="${basedir}/vendor/bin/pdepend"/>
  <property name="phpcpd"  value="${basedir}/vendor/bin/phpcpd"/>
  <property name="phpcs"   value="${basedir}/vendor/bin/phpcs"/>
+ <property name="phpcbf"   value="${basedir}/vendor/bin/phpcbf"/>
  <property name="phpdox"  value="${basedir}/vendor/bin/phpdox"/>
  <property name="phploc"  value="${basedir}/vendor/bin/phploc"/>
  <property name="phpmd"   value="${basedir}/vendor/bin/phpmd"/>
@@ -279,4 +280,15 @@
    </condition>
   </fail>
  </target>
+
+  <target name="phpcbf" description="Adheres code to PSR-2 standard">
+        <exec executable="${phpcbf}">
+            <arg value="--standard=build/phpcbf.xml"/>
+            <arg value="--tabWidth=4"/>
+            <arg value="--encoding=UTF-8"/>
+            <arg value="--extensions=php"/>
+            <arg path="${basedir}/src/"/>
+        </exec>
+    </target>
+
 </project>

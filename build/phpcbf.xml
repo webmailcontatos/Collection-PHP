@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="right">
+    <description>Regras de Estilo de Codigo Controlab</description>
+
+    <rule ref="Generic.Formatting.SpaceAfterCast.NoSpace"/>
+    <rule ref="Squiz.Arrays.ArrayBracketSpacing.SpaceAfterBracket"/>
+    <rule ref="Squiz.Arrays.ArrayBracketSpacing.SpaceBeforeBracket"/>
+    <rule ref="Squiz.Classes.SelfMemberReference.SpaceBefore"/>
+    <rule ref="Squiz.Commenting.InlineComment.NoSpaceBefore"/>
+    <rule ref="Squiz.Strings.DoubleQuoteUsage.NotRequired"/>
+    <rule ref="Squiz.WhiteSpace.ControlStructureSpacing.NoLineAfterClose"/>
+    <rule ref="Squiz.WhiteSpace.FunctionOpeningBraceSpace.SpacingAfter"/><!-- ok -->
+    <rule ref="Squiz.WhiteSpace.OperatorSpacing.SpacingAfter"/><!-- ok -->
+    <!--<rule ref="Generic.WhiteSpace.ScopeIndent.Incorrect"/>-->
+    <!--<rule ref="Squiz.WhiteSpace.FunctionClosingBraceSpace.SpacingBeforeClose"/>-->
+    <!--<rule ref="PEAR.Functions.FunctionCallSignature.SpaceAfterCloseBracket"/>-->
+    <rule ref="PSR2"/>
+</ruleset>

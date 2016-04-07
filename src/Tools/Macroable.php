@@ -27,8 +27,7 @@ trait Macroable
         static::$macros[$name] = $macro;
     }
 
-//end macro()
-
+// end macro()
     /**
      * Checks if macro is registered.
      *
@@ -41,8 +40,7 @@ trait Macroable
         return isset(static::$macros[$name]);
     }
 
-//end hasMacro()
-
+// end hasMacro()
     /**
      * Dynamically handle calls to the class.
      *
@@ -73,8 +71,7 @@ trait Macroable
         throw new BadMethodCallException('Method '.$method.' does not exist.');
     }
 
-//end __callStatic()
-
+// end __callStatic()
     /**
      * Dynamically handle calls to the class.
      *
@@ -98,5 +95,5 @@ trait Macroable
         throw new BadMethodCallException('Method '.$method.' does not exist.');
     }
 
-//end __call()
+// end __call()
 }
