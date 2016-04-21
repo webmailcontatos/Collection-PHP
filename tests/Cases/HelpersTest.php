@@ -37,8 +37,7 @@ class HelpersTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result);
     }
 
-//end testDataGetReturnDefault()
-
+// end testDataGetReturnDefault()
     public function testDataGetTargetCollection()
     {
         $target = new Collection([1, 2, 3]);
@@ -53,8 +52,7 @@ class HelpersTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result);
     }
 
-//end testDataGetTargetCollection()
-
+// end testDataGetTargetCollection()
     public function testDataGetTargetCollectionReturnFirtsElementeKey()
     {
         $target = new Collection([45 => 45]);
@@ -65,8 +63,7 @@ class HelpersTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result);
     }
 
-//end testDataGetTargetCollectionReturnFirtsElementeKey()
-
+// end testDataGetTargetCollectionReturnFirtsElementeKey()
     public function testDataGetTargetObject()
     {
         $target = new \stdClass();
@@ -81,8 +78,7 @@ class HelpersTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result);
     }
 
-//end testDataGetTargetObject()
-
+// end testDataGetTargetObject()
     public function testDataGetTargetObjectTryCoverage()
     {
         $target = new \stdClass();
@@ -93,5 +89,5 @@ class HelpersTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result);
     }
 
-//end testDataGetTargetObjectTryCoverage()
+// end testDataGetTargetObjectTryCoverage()
 }//end class

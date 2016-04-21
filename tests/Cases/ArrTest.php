@@ -37,8 +37,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result);
     }
 
-//end testArrAdd()
-
+// end testArrAdd()
     public function testBuildArrayClousure()
     {
         $array = [
@@ -65,8 +64,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result);
     }
 
-//end testBuildArrayClousure()
-
+// end testBuildArrayClousure()
     public function testCollapse()
     {
         $array = [
@@ -92,8 +90,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result);
     }
 
-//end testCollapse()
-
+// end testCollapse()
     public function testDivideArray()
     {
         $array = [
@@ -116,8 +113,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result);
     }
 
-//end testDivideArray()
-
+// end testDivideArray()
     public function testDotArray()
     {
         $array = [
@@ -134,8 +130,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result);
     }
 
-//end testDotArray()
-
+// end testDotArray()
     public function testExceptArray()
     {
         $array = [
@@ -151,8 +146,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result);
     }
 
-//end testExceptArray()
-
+// end testExceptArray()
     public function testHasArray()
     {
         $array = [
@@ -169,16 +163,14 @@ class ArrTest extends PHPUnit_Framework_TestCase
         $this->assertFalse(Arr::has($array, 6));
     }
 
-//end testHasArray()
-
+// end testHasArray()
     public function testIsAssoc()
     {
         $this->assertFalse(Arr::isAssoc([1, 2, 3]));
         $this->assertTrue(Arr::isAssoc(['nome' => 'Thiago']));
     }
 
-//end testIsAssoc()
-
+// end testIsAssoc()
     public function testArrayOnly()
     {
         $array = [
@@ -191,8 +183,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result);
     }
 
-//end testArrayOnly()
-
+// end testArrayOnly()
     public function testArraySet()
     {
         $array = [
@@ -204,8 +195,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals([1, 2, 3, 55], $array);
     }
 
-//end testArraySet()
-
+// end testArraySet()
     public function testArraySetComKeyNull()
     {
         $array = [
@@ -217,8 +207,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(55, $array);
     }
 
-//end testArraySetComKeyNull()
-
+// end testArraySetComKeyNull()
     public function testArraySetComKeyArray()
     {
         $array = [
@@ -230,8 +219,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals([0 => 1, 1 => [2 => 55], 2 => 3], $array);
     }
 
-//end testArraySetComKeyArray()
-
+// end testArraySetComKeyArray()
     public function testArraySort()
     {
         $array = [
@@ -254,8 +242,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result);
     }
 
-//end testArraySort()
-
+// end testArraySort()
     public function testArrayWhere()
     {
         $array = [
@@ -274,8 +261,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals([1 => 2, 2 => 3], $result);
     }
 
-//end testArrayWhere()
-
+// end testArrayWhere()
     public function testArrayCollapseCollection()
     {
         $collection = new Collection([[1, 2, 3], [4, 5]]);
@@ -290,8 +276,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result);
     }
 
-//end testArrayCollapseCollection()
-
+// end testArrayCollapseCollection()
     public function testSortRecursive()
     {
         $array = [
@@ -318,8 +303,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result);
     }
 
-//end testSortRecursive()
-
+// end testSortRecursive()
     public function testMacroable()
     {
         Arr::macro(
@@ -346,8 +330,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($objectExpected, $objectResult);
     }
 
-//end testMacroable()
-
+// end testMacroable()
     public function testMacroableNoClosure()
     {
         Arr::macro('collection', [(new Collection()), 'make']);
@@ -361,8 +344,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result->toArray());
     }
 
-//end testMacroableNoClosure()
-
+// end testMacroableNoClosure()
     public function testMacroableMethodNaoRegistrado()
     {
         try {
@@ -376,8 +358,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
         $this->fail('Uma exception não foi lançada');
     }
 
-//end testMacroableMethodNaoRegistrado()
-
+// end testMacroableMethodNaoRegistrado()
     public function testMacroableNoClosureObjectContext()
     {
         Arr::macro('collection', [(new Collection()), 'make']);
@@ -392,8 +373,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result->toArray());
     }
 
-//end testMacroableNoClosureObjectContext()
-
+// end testMacroableNoClosureObjectContext()
     public function testMacroableMethodNaoRegistradoObjectContext()
     {
         try {
@@ -408,8 +388,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
         $this->fail('Uma exception não foi lançada');
     }
 
-//end testMacroableMethodNaoRegistradoObjectContext()
-
+// end testMacroableMethodNaoRegistradoObjectContext()
     public function testCollapseObjectTypeCollection()
     {
         $collection1 = new Collection([1, 2, 3]);
@@ -426,8 +405,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result);
     }
 
-//end testCollapseObjectTypeCollection()
-
+// end testCollapseObjectTypeCollection()
     public function testDotComValoresArray()
     {
         $array = [
@@ -449,8 +427,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result);
     }
 
-//end testDotComValoresArray()
-
+// end testDotComValoresArray()
     public function testForgetForceCoverage()
     {
         $array = [
@@ -468,8 +445,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result);
     }
 
-//end testForgetForceCoverage()
-
+// end testForgetForceCoverage()
     public function testGetForceCoverage()
     {
         $array = [
@@ -486,8 +462,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result);
     }
 
-//end testGetForceCoverage()
-
+// end testGetForceCoverage()
     public function testFetchForceCoverage()
     {
         $result = Arr::fetch(['0'], '0.teste');

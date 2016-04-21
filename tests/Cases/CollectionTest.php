@@ -317,7 +317,7 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result);
     }
 
-	public function testMethodHas()
+    public function testMethodHas()
     {
         $collection = new Collection(['account_id' => 1, 'product' => 'Desk']);
 
@@ -345,7 +345,7 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result);
     }
 
-	public function testMethodIntersect()
+    public function testMethodIntersect()
     {
         $collection = new Collection(['Desk', 'Sofa', 'Chair']);
 
@@ -410,7 +410,7 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(['prod-100', 'prod-200'], $keys->all());
     }
 
-	public function testMethodLast()
+    public function testMethodLast()
     {
         $collection = (new Collection([1, 2, 3, 4]))->last(
             function ($key, $value) {
@@ -569,7 +569,7 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $this->assertEquals([5, 4, 3, 2, 1], $reversed->all());
     }
 
-	public function testMethodSearch()
+    public function testMethodSearch()
     {
         $collection = new Collection([2, 4, 6, 8]);
 
@@ -656,7 +656,7 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result);
     }
 
-	public function testMethodSortByDesc()
+    public function testMethodSortByDesc()
     {
         $collection = new Collection(
             [

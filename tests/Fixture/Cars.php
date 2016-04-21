@@ -24,12 +24,11 @@ class Cars implements Jsonable
         $this->types[] = $type;
     }
 
-//end setType()
-
+// end setType()
     public function toJson($options = 0)
     {
         return json_encode($this->types, $options);
     }
 
-//end toJson()
+// end toJson()
 }//end class

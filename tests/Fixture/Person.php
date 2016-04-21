@@ -28,8 +28,7 @@ class Person
         return $this;
     }
 
-//end setName()
-
+// end setName()
     public function setAge($age)
     {
         $this->age = $age;
@@ -37,8 +36,7 @@ class Person
         return $this;
     }
 
-//end setAge()
-
+// end setAge()
     public function setDoc($doc)
     {
         $this->doc = $doc;
@@ -46,33 +44,29 @@ class Person
         return $this;
     }
 
-//end setDoc()
-
+// end setDoc()
     public function getName()
     {
         return $this->name;
     }
 
-//end getName()
-
+// end getName()
     public function getAge()
     {
         return $this->age;
     }
 
-//end getAge()
-
+// end getAge()
     public function getDoc()
     {
         return $this->doc;
     }
 
-//end getDoc()
-
+// end getDoc()
     public function __toString()
     {
         return 'Olá, eu sou '.$this->getName();
     }
 
-//end __toString()
+// end __toString()
 }//end class

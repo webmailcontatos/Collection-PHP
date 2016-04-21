@@ -24,12 +24,11 @@ class Colors implements Arrayable
         $this->colors[] = $color;
     }
 
-//end setColor()
-
+// end setColor()
     public function toArray()
     {
         return $this->colors;
     }
 
-//end toArray()
+// end toArray()
 }//end class
