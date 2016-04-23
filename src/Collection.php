@@ -12,7 +12,6 @@ use Countable;
 use InvalidArgumentException;
 use IteratorAggregate;
 use JsonSerializable;
-use u\v\w\interfaceB;
 
 /**
  * Class Collection.
