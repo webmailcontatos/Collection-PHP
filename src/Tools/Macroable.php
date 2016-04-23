@@ -33,7 +33,7 @@ trait Macroable
      *
      * @param string $name Nome
      *
-     * @return bool
+     * @return boolean
      */
     public static function hasMacro($name)
     {

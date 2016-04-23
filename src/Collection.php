@@ -70,10 +70,10 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
     /**
      * Determine if an item exists in the collection.
      *
-     * @param mixed $key   Chave do array
+     * @param mixed $key Chave do array
      * @param mixed $value Valor
      *
-     * @return bool
+     * @return boolean
      */
     public function contains($key, $value = null)
     {
@@ -163,9 +163,9 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
     /**
      * Filter items by the given key value pair.
      *
-     * @param string $key    Chave
-     * @param mixed  $value  Valor
-     * @param boolean   $strict Strict
+     * @param string $key Chave
+     * @param mixed $value Valor
+     * @param boolean $strict Strict
      *
      * @return static
      */
@@ -197,8 +197,8 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
     /**
      * Filter items by the given key value pair using loose comparison.
      *
-     * @param string $key   Chave
-     * @param mixed  $value Valor
+     * @param string $key Chave
+     * @param mixed $value Valor
      *
      * @return static
      */
@@ -211,7 +211,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
      * Get the first item from the collection.
      *
      * @param callable|null $callback Funcao
-     * @param mixed         $default  Valor default
+     * @param mixed $default Valor default
      *
      * @return mixed
      */
@@ -267,7 +267,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
     /**
      * Get an item from the collection by key.
      *
-     * @param mixed $key     Chave
+     * @param mixed $key Chave
      * @param mixed $default Default
      *
      * @return mixed
@@ -290,8 +290,8 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
     /**
      * Group an associative array by a field or using a callback.
      *
-     * @param callable|string $groupBy      Groupby
-     * @param boolean            $preserveKeys Preservar chave
+     * @param callable|string $groupBy Groupby
+     * @param boolean $preserveKeys Preservar chave
      *
      * @return static
      */
@@ -342,7 +342,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
      *
      * @param mixed $key Chave
      *
-     * @return bool
+     * @return boolean
      */
     public function has($key)
     {
@@ -353,7 +353,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
      * Concatenate values of a given key as a string.
      *
      * @param string $value Valor
-     * @param string $glue  Delimitador
+     * @param string $glue Delimitador
      *
      * @return string
      */
@@ -383,7 +383,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
     /**
      * Determine if the collection is empty or not.
      *
-     * @return bool
+     * @return boolean
      */
     public function isEmpty()
     {
@@ -395,7 +395,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
      *
      * @param mixed $value Valor
      *
-     * @return bool
+     * @return boolean
      */
     protected function useAsCallable($value)
     {
@@ -420,7 +420,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
      * Get the last item from the collection.
      *
      * @param callable|null $callback Funcao
-     * @param mixed         $default  Valor default
+     * @param mixed $default Valor default
      *
      * @return mixed
      */
@@ -444,7 +444,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
      * Get an array with the values of a given key.
      *
      * @param string $value Valor
-     * @param string $key   Chave
+     * @param string $key Chave
      *
      * @return static
      */
@@ -457,7 +457,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
      * Alias for the "pluck" method.
      *
      * @param string $value Valor
-     * @param string $key   Chave
+     * @param string $key Chave
      *
      * @return static
      */
@@ -549,7 +549,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
     /**
      * "Paginate" the collection by slicing it into a smaller collection.
      *
-     * @param integer $page    Página
+     * @param integer $page Página
      * @param integer $perPage Por página
      *
      * @return static
@@ -600,7 +600,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
     /**
      * Pulls an item from the collection.
      *
-     * @param mixed $key     Chave
+     * @param mixed $key Chave
      * @param mixed $default Default
      *
      * @return mixed
@@ -613,7 +613,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
     /**
      * Put an item in the collection by key.
      *
-     * @param mixed $key   Chave
+     * @param mixed $key Chave
      * @param mixed $value Valor
      *
      * @return $this
@@ -639,7 +639,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
         $count = $this->count();
         if ($amount > ($count)) {
             throw new InvalidArgumentException(
-                'You requested '.$amount.' items, but there are only '.$count.' items in the collection'
+                'You requested ' . $amount . ' items, but there are only ' . $count . ' items in the collection'
             );
         }
 
@@ -656,7 +656,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
      * Reduce the collection to a single value.
      *
      * @param callable $callback Funcao
-     * @param mixed    $initial  Inicial
+     * @param mixed $initial Inicial
      *
      * @return mixed
      */
@@ -710,8 +710,8 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
     /**
      * Search the collection for a given value and return the corresponding key if successful.
      *
-     * @param mixed $value  Valor
-     * @param boolean  $strict Estrito
+     * @param mixed $value Valor
+     * @param boolean $strict Estrito
      *
      * @return mixed
      */
@@ -757,8 +757,8 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
     /**
      * Slice the underlying collection array.
      *
-     * @param integer  $offset       Offset
-     * @param integer  $length       Length
+     * @param integer $offset Offset
+     * @param integer $length Length
      * @param boolean $preserveKeys Preservar chaves
      *
      * @return static
@@ -771,7 +771,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
     /**
      * Chunk the underlying collection array.
      *
-     * @param integer  $size         Tamanho
+     * @param integer $size Tamanho
      * @param boolean $preserveKeys Preservar chaves
      *
      * @return static
@@ -806,9 +806,9 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
     /**
      * Sort the collection using the given callback.
      *
-     * @param callable|string $callback   Funcao
-     * @param integer             $options    Opções
-     * @param boolean            $descending Descendente
+     * @param callable|string $callback Funcao
+     * @param integer $options Opções
+     * @param boolean $descending Descendente
      *
      * @return static
      */
@@ -840,7 +840,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
      * Sort the collection in descending order using the given callback.
      *
      * @param callable|string $callback Funcao
-     * @param integer             $options  Opções
+     * @param integer $options Opções
      *
      * @return static
      */
@@ -852,9 +852,9 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
     /**
      * Splice a portion of the underlying collection array.
      *
-     * @param integer      $offset      Offset
-     * @param integer|null $length      Tamanho
-     * @param mixed    $replacement Subtituição
+     * @param integer $offset Offset
+     * @param integer|null $length Tamanho
+     * @param mixed $replacement Subtituição
      *
      * @return static
      */
@@ -1007,13 +1007,14 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
             },
             func_get_args()
         );
+        $function = function () {
+            return new static(func_get_args());
+        };
 
         $params = array_merge(
             [
-                function () {
-                    return new static(func_get_args());
-                },
-                $this->items,
+             $function,
+             $this->items,
             ],
             $arrayableItems
         );
@@ -1125,7 +1126,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
     /**
      * Set the item at a given offset.
      *
-     * @param mixed $key   Chave
+     * @param mixed $key Chave
      * @param mixed $value Valor
      *
      * @return void
@@ -1178,7 +1179,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
             return json_decode($items->toJson(), true);
         }
 
-        return (array) $items;
+        return (array)$items;
     }
 
     /**
@@ -1196,7 +1197,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
     /**
      * Obtem um valor e o remove.
      *
-     * @param mixed $key     Chave
+     * @param mixed $key Chave
      * @param mixed $default Valor default
      *
      * @return mixed $default
@@ -1212,7 +1213,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
     /**
      * Método que possibilita move items dentro de array.
      *
-     * @param mixed $toMove      Elemento que deseja mover
+     * @param mixed $toMove Elemento que deseja mover
      * @param mixed $targetIndex Alvo
      *
      * @return Collection

@@ -275,7 +275,7 @@ class Arr
      * @param array  $array Array
      * @param string $key   Chave
      *
-     * @return bool
+     * @return boolean
      */
     public static function has(array $array, $key)
     {
@@ -298,7 +298,7 @@ class Arr
      *
      * @param array $array Array
      *
-     * @return bool
+     * @return boolean
      */
     public static function isAssoc(array $array)
     {
@@ -412,7 +412,8 @@ class Arr
     public static function set(array &$array, $key, $value)
     {
         if ($key === null) {
-            return $array = $value;
+            $array = $value;
+            return $array;
         }
 
         $keys = explode('.', $key);
