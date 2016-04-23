@@ -2,6 +2,10 @@
 
 namespace Collection\Interfaces;
 
+/**
+ * Interface Arrayable
+ * @package Collection\Interfaces
+ */
 interface Arrayable
 {
     /**

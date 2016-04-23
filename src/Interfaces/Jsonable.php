@@ -7,7 +7,7 @@ interface Jsonable
     /**
      * Convert the object to its JSON representation.
      *
-     * @param int $options Opções
+     * @param integer $options Opções
      *
      * @return string
      */

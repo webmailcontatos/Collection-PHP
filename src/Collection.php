@@ -12,6 +12,7 @@ use Countable;
 use InvalidArgumentException;
 use IteratorAggregate;
 use JsonSerializable;
+use u\v\w\interfaceB;
 
 /**
  * Class Collection.
@@ -165,7 +166,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
      *
      * @param string $key    Chave
      * @param mixed  $value  Valor
-     * @param bool   $strict Strict
+     * @param boolean   $strict Strict
      *
      * @return static
      */
@@ -291,7 +292,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
      * Group an associative array by a field or using a callback.
      *
      * @param callable|string $groupBy      Groupby
-     * @param bool            $preserveKeys Preservar chave
+     * @param boolean            $preserveKeys Preservar chave
      *
      * @return static
      */
@@ -549,8 +550,8 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
     /**
      * "Paginate" the collection by slicing it into a smaller collection.
      *
-     * @param int $page    Página
-     * @param int $perPage Por página
+     * @param integer $page    Página
+     * @param integer $perPage Por página
      *
      * @return static
      */
@@ -628,7 +629,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
     /**
      * Get one or more items randomly from the collection.
      *
-     * @param int $amount Quantidade
+     * @param integer $amount Quantidade
      *
      * @throws InvalidArgumentException Se a quantidade for inválida.
      *
@@ -711,7 +712,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
      * Search the collection for a given value and return the corresponding key if successful.
      *
      * @param mixed $value  Valor
-     * @param bool  $strict Estrito
+     * @param boolean  $strict Estrito
      *
      * @return mixed
      */
@@ -757,9 +758,9 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
     /**
      * Slice the underlying collection array.
      *
-     * @param int  $offset       Offset
-     * @param int  $length       Length
-     * @param bool $preserveKeys Preservar chaves
+     * @param integer  $offset       Offset
+     * @param integer  $length       Length
+     * @param boolean $preserveKeys Preservar chaves
      *
      * @return static
      */
@@ -771,8 +772,8 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
     /**
      * Chunk the underlying collection array.
      *
-     * @param int  $size         Tamanho
-     * @param bool $preserveKeys Preservar chaves
+     * @param integer  $size         Tamanho
+     * @param boolean $preserveKeys Preservar chaves
      *
      * @return static
      */
@@ -807,8 +808,8 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
      * Sort the collection using the given callback.
      *
      * @param callable|string $callback   Funcao
-     * @param int             $options    Opções
-     * @param bool            $descending Descendente
+     * @param integer             $options    Opções
+     * @param boolean            $descending Descendente
      *
      * @return static
      */
@@ -840,7 +841,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
      * Sort the collection in descending order using the given callback.
      *
      * @param callable|string $callback Funcao
-     * @param int             $options  Opções
+     * @param integer             $options  Opções
      *
      * @return static
      */
@@ -852,8 +853,8 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
     /**
      * Splice a portion of the underlying collection array.
      *
-     * @param int      $offset      Offset
-     * @param int|null $length      Tamanho
+     * @param integer      $offset      Offset
+     * @param integer|null $length      Tamanho
      * @param mixed    $replacement Subtituição
      *
      * @return static
@@ -898,7 +899,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
     /**
      * Take the first or last {$limit} items.
      *
-     * @param int $limit Limite
+     * @param integer $limit Limite
      *
      * @return static
      */
@@ -1055,7 +1056,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
     /**
      * Get the collection of items as JSON.
      *
-     * @param int $options Inteiro
+     * @param integer $options Inteiro
      *
      * @return string
      */
@@ -1077,7 +1078,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
     /**
      * Get a CachingIterator instance.
      *
-     * @param int $flags Bandeira
+     * @param integer $flags Bandeira
      *
      * @return \CachingIterator
      */
@@ -1089,7 +1090,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
     /**
      * Count the number of items in the collection.
      *
-     * @return int
+     * @return integer
      */
     public function count()
     {
@@ -1101,7 +1102,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
      *
      * @param mixed $key Chave
      *
-     * @return bool
+     * @return boolean
      */
     public function offsetExists($key)
     {

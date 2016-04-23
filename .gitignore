@@ -6,3 +6,5 @@
 /.settings/
 composer.phar
 composer.lock
+build/ruleset.xml
+
