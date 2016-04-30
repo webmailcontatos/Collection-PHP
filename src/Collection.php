@@ -1179,7 +1179,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
             return json_decode($items->toJson(), true);
         }
 
-        return (array)$items;
+        return (array) $items;
     }
 
     /**
